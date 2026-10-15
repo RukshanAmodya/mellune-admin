@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>{!! Session::get('app_name') !!}</title>
+    <title>{!! Session::get('app_name', 'Mellune') !!}</title>
     <link rel='shortcut icon' type='image/png' href="{{ asset('asset/img/Mellune-Logo.png') }}" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> -->
     <link href="{{ asset('asset/cdncss/quill.css') }}" rel="stylesheet" /> 
     <link href="{{ asset('asset/cdncss/iziToast.css') }}" rel="stylesheet" /> 
@@ -54,58 +56,77 @@
             </nav>
             
             <div class="main-sidebar sidebar-style-2">
-                <div class="sidebar-brand" id="reloadContent">
-                    <a href="{{ route('index') }}">
-                        <span class="logo-name">{!! Session::get('app_name') !!}</span>
-                        <span class="logo-name-small">{!! Session::get('app_name') !!}</span>
-                    </a>
-                </div>
                 <aside id="sidebar-wrapper">
+                    <!-- Brand Header -->
+                    <div class="sidebar-brand">
+                        <a href="{{ route('index') }}" class="sidebar-brand-link">
+                            <img src="{{ asset('asset/img/Mellune-Logo.png') }}" alt="Mellune" class="brand-logo-img">
+                            <div class="brand-text-wrap">
+                                <span class="brand-title">Mellune<span class="brand-dot">.</span></span>
+                                <span class="brand-subtitle">Live Wallpaper Panel</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sidebar-brand sidebar-brand-sm">
+                        <a href="{{ route('index') }}">
+                            <img src="{{ asset('asset/img/Mellune-Logo.png') }}" alt="Mellune" class="brand-logo-sm">
+                        </a>
+                    </div>
                    
                     <ul class="sidebar-menu">
+                        <!-- OVERVIEW -->
+                        <li class="menu-category-header">OVERVIEW</li>
                         <li class="sideBarli indexSideA">
-                            <a href="{{ route('index') }}" class="nav-link" >
-                                <i data-feather="home"></i>
-                                <span> {{ __('dashboard') }} </span>
+                            <a href="{{ route('index') }}" class="nav-link">
+                                <i data-feather="grid"></i>
+                                <span>{{ __('dashboard') }}</span>
                             </a>
                         </li>
+
+                        <!-- CONTENT & MEDIA -->
+                        <li class="menu-category-header">CONTENT & MEDIA</li>
                         <li class="sideBarli categorySideA">
                             <a href="{{ route('categories') }}" class="nav-link">
-                                <i data-feather="box"></i>
-                                <span> {{ __('category') }} </span>
+                                <i data-feather="folder"></i>
+                                <span>{{ __('category') }}</span>
                             </a>
                         </li>
                         <li class="sideBarli wallpaperSideA">
                             <a href="{{ route('wallpaper') }}" class="nav-link">
                                 <i data-feather="image"></i>
-                                <span> {{ __('wallpaper') }} </span>
+                                <span>{{ __('wallpaper') }}</span>
                             </a>
                         </li>
+
+                        <!-- ENGAGEMENT & MONETIZATION -->
+                        <li class="menu-category-header">GROWTH & MONETIZATION</li>
                         <li class="sideBarli notificationSideA">
                             <a href="{{ route('notification') }}" class="nav-link">
-                                <i data-feather="bell"></i>
-                                <span> {{ __('notification') }} </span>
+                                <i data-feather="send"></i>
+                                <span>{{ __('notification') }}</span>
                             </a>
                         </li>
                         <li class="sideBarli subscriptionSideA">
                             <a href="{{ route('subscription') }}" class="nav-link">
-                                <i data-feather="lock"></i>
-                                <span> {{ __('subscription') }} </span>
+                                <i data-feather="credit-card"></i>
+                                <span>{{ __('subscription') }}</span>
                             </a>
                         </li>
                         <li class="sideBarli admobSideA">
                             <a href="{{ route('admob') }}" class="nav-link">
-                                <i data-feather="activity"></i>
-                                <span> {{ __('admob') }} </span>
+                                <i data-feather="dollar-sign"></i>
+                                <span>{{ __('admob') }}</span>
                             </a>
                         </li>
+
+                        <!-- SYSTEM & SUPPORT -->
+                        <li class="menu-category-header">ADMIN & SUPPORT</li>
                         <li class="sideBarli settingSideA">
                             <a href="{{ route('setting') }}" class="nav-link">
-                                <i data-feather="settings"></i>
-                                <span> {{ __('setting') }} </span>
+                                <i data-feather="sliders"></i>
+                                <span>{{ __('setting') }}</span>
                             </a>
                         </li>
-                        <hr>
                         <li class="sideBarli privacySideA">
                             <a href="{{ route('viewPrivacy') }}" class="nav-link">
                                 <i data-feather="shield"></i>
@@ -114,11 +135,19 @@
                         </li>
                         <li class="sideBarli termsSideA">
                             <a href="{{ route('viewTerms') }}" class="nav-link">
-                                <i data-feather="clipboard"></i>
+                                <i data-feather="file-text"></i>
                                 <span>{{ __('termsOfUse') }}</span>
                             </a>
                         </li>
                     </ul>
+
+                    <!-- Sidebar Footer Logout -->
+                    <div class="sidebar-logout-wrap">
+                        <a href="{{ route('logout') }}" class="sidebar-logout-btn">
+                            <i data-feather="log-out"></i>
+                            <span>Log Out</span>
+                        </a>
+                    </div>
                 </aside>
             </div>
             <!-- Main Content -->
