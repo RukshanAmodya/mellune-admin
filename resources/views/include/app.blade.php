@@ -51,7 +51,7 @@
                     <!-- 1. Live Server Active Pill (Omnia style Phone Selector pill) -->
                     <div class="omnia-phone-pill d-none d-md-flex align-items-center">
                         <span class="omnia-dot-green"></span>
-                        <span class="omnia-pill-text">Mellune Engine</span>
+                        <span class="omnia-pill-text">{!! Session::get('app_name', 'Mellune') !!} Engine</span>
                         <span class="omnia-pill-badge">Online</span>
                     </div>
 
@@ -110,19 +110,19 @@
             
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
-                    <!-- Brand Header -->
-                    <div class="sidebar-brand">
+                    <!-- Brand Header (Dynamic Session::get('app_name') with live update reloadContent ID) -->
+                    <div class="sidebar-brand" id="reloadContent">
                         <a href="{{ route('index') }}" class="sidebar-brand-link">
-                            <img src="{{ asset('asset/img/Mellune-Logo.png') }}" alt="Mellune" class="brand-logo-img">
+                            <img src="{{ asset('asset/img/Mellune-Logo.png') }}" alt="{{ Session::get('app_name', 'Mellune') }}" class="brand-logo-img">
                             <div class="brand-text-wrap">
-                                <span class="brand-title">Mellune<span class="brand-dot">.</span></span>
+                                <span class="brand-title logo-name">{!! Session::get('app_name', 'Mellune') !!}<span class="brand-dot">.</span></span>
                                 <span class="brand-subtitle">Live Wallpaper Panel</span>
                             </div>
                         </a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
                         <a href="{{ route('index') }}">
-                            <img src="{{ asset('asset/img/Mellune-Logo.png') }}" alt="Mellune" class="brand-logo-sm">
+                            <img src="{{ asset('asset/img/Mellune-Logo.png') }}" alt="{{ Session::get('app_name', 'Mellune') }}" class="brand-logo-sm">
                         </a>
                     </div>
                    
