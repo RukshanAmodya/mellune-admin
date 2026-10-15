@@ -21,6 +21,11 @@ class SettingsController extends Controller
         $allWallpapers = Wallpaper::count();
         $wallpapers = Wallpaper::where('wallpaper_type', '0')->count();
         $liveWallpapers = Wallpaper::where('wallpaper_type', '1')->count();
+        $freeWallpapers = Wallpaper::where('access_type', '0')->count();
+        $premiumWallpapers = Wallpaper::where('access_type', '1')->count();
+        $recentWallpapers = Wallpaper::with('category')->orderBy('id', 'DESC')->limit(6)->get();
+        $recentCategories = Category::withCount('wallpapers')->orderBy('id', 'DESC')->limit(5)->get();
+
         return view('index', [
             'allCategories' => $allCategories, 
             'category' => $category, 
@@ -28,6 +33,10 @@ class SettingsController extends Controller
             'allWallpapers' => $allWallpapers, 
             'wallpapers' => $wallpapers, 
             'liveWallpapers' => $liveWallpapers, 
+            'freeWallpapers' => $freeWallpapers,
+            'premiumWallpapers' => $premiumWallpapers,
+            'recentWallpapers' => $recentWallpapers,
+            'recentCategories' => $recentCategories,
         ]);
     }
 

@@ -4370,3 +4370,567 @@ body {
     padding-right: 15px !important;
   }
 }
+
+/* ==========================================================================
+   OMNIA-UI DASHBOARD COMPONENTS (MATCHING NEXTJS REPO)
+   ========================================================================== */
+.omnia-dashboard-container {
+  font-family: 'Outfit', sans-serif !important;
+  width: 100% !important;
+}
+
+/* 1. Environmental Quality Index Style Cards */
+.omnia-eq-card {
+  background: #ffffff !important;
+  border-radius: 24px !important;
+  padding: 20px 22px !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.3s ease !important;
+  height: 100% !important;
+}
+
+.omnia-eq-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.06) !important;
+  border-color: #cbd5e1 !important;
+}
+
+.omnia-eq-main {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+}
+
+.omnia-eq-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+.omnia-eq-title {
+  font-size: 12px !important;
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.2px !important;
+}
+
+.omnia-eq-value-wrap {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 3px !important;
+  line-height: 1 !important;
+  margin: 2px 0 !important;
+}
+
+.omnia-eq-value {
+  font-size: 28px !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+  letter-spacing: -0.8px !important;
+}
+
+.omnia-eq-denom {
+  font-size: 13.5px !important;
+  color: #94a3b8 !important;
+  font-weight: 400 !important;
+}
+
+.omnia-eq-trend {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+}
+
+.text-emerald {
+  color: #10b981 !important;
+}
+
+.text-rose {
+  color: #f43f5e !important;
+}
+
+.text-muted-eq {
+  color: #94a3b8 !important;
+  font-weight: 400 !important;
+}
+
+/* Mini Animated Bars in EQ Card */
+.omnia-eq-mini-bars {
+  display: flex !important;
+  align-items: flex-end !important;
+  gap: 5px !important;
+  height: 52px !important;
+}
+
+.eq-bar {
+  width: 9px !important;
+  border-radius: 9999px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  display: inline-block !important;
+}
+
+.eq-bar.bar-gray {
+  background-color: #e2e8f0 !important;
+}
+
+.eq-bar.bar-blue {
+  background-color: #3b82f6 !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+}
+
+.eq-bar.bar-green {
+  background-color: #10b981 !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
+}
+
+.eq-bar.bar-purple {
+  background-color: #8b5cf6 !important;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3) !important;
+}
+
+.eq-bar.bar-coral {
+  background-color: #f43f5e !important;
+  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.3) !important;
+}
+
+.omnia-eq-card:hover .eq-bar.active {
+  transform: scaleY(1.08);
+}
+
+/* 2. White Card Container (Matching NextJS PerformanceOverviewChart) */
+.omnia-white-card {
+  background: #ffffff !important;
+  border-radius: 28px !important;
+  padding: 26px 28px !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  box-shadow: 0 12px 40px -5px rgba(0, 0, 0, 0.03) !important;
+}
+
+.omnia-card-title {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+  letter-spacing: -0.4px !important;
+  margin: 0 !important;
+}
+
+.omnia-card-subtitle {
+  font-size: 12px !important;
+  color: #94a3b8 !important;
+  margin: 3px 0 0 0 !important;
+}
+
+.omnia-badge-pill {
+  display: flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 6px 14px !important;
+  border-radius: 9999px !important;
+  background: #f4f8ff !important;
+  border: 1px solid rgba(191, 219, 254, 0.6) !important;
+  color: #2563eb !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+}
+
+.dot-blue {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background-color: #2563eb !important;
+}
+
+/* Chart Visual Container */
+.omnia-chart-visual-wrap {
+  display: flex !important;
+  align-items: flex-end !important;
+  gap: 16px !important;
+  height: 220px !important;
+  padding-top: 20px !important;
+  position: relative !important;
+}
+
+.omnia-y-axis {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  font-size: 10.5px !important;
+  color: #cbd5e1 !important;
+  padding-bottom: 24px !important;
+}
+
+.omnia-bars-grid {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  flex: 1 1 auto !important;
+  height: 100% !important;
+  padding-bottom: 24px !important;
+  border-bottom: 1px dashed #e2e8f0 !important;
+}
+
+.omnia-bar-col {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+  height: 100% !important;
+  justify-content: flex-end !important;
+  position: relative !important;
+  flex: 1 !important;
+}
+
+.omnia-bar-bg {
+  width: 28px !important;
+  height: 100% !important;
+  background-color: #f1f5f9 !important;
+  border-radius: 9999px !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  position: relative !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.omnia-bar-bg:hover {
+  background-color: #e2e8f0 !important;
+}
+
+.omnia-bar-fill {
+  width: 100% !important;
+  border-radius: 9999px !important;
+  position: relative !important;
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.fill-blue {
+  background: linear-gradient(180deg, #3b82f6, #2563eb) !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35) !important;
+}
+
+.fill-green {
+  background: linear-gradient(180deg, #10b981, #059669) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35) !important;
+}
+
+.fill-purple {
+  background: linear-gradient(180deg, #a855f7, #7c3aed) !important;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.35) !important;
+}
+
+.fill-coral {
+  background: linear-gradient(180deg, #f43f5e, #e11d48) !important;
+  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.35) !important;
+}
+
+.omnia-bar-tooltip {
+  position: absolute !important;
+  top: -26px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: #0f172a !important;
+  color: #ffffff !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  padding: 2px 6px !important;
+  border-radius: 6px !important;
+  opacity: 0 !important;
+  transition: opacity 0.2s ease !important;
+  pointer-events: none !important;
+  white-space: nowrap !important;
+}
+
+.omnia-bar-bg:hover .omnia-bar-tooltip {
+  opacity: 1 !important;
+}
+
+.omnia-bar-label {
+  font-size: 11px !important;
+  color: #64748b !important;
+  font-weight: 500 !important;
+  position: absolute !important;
+  bottom: -24px !important;
+  white-space: nowrap !important;
+}
+
+/* Circular Gauge Card (Matching CampaignOverviewCard) */
+.omnia-gauge-wrap {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.omnia-gauge-circle {
+  width: 140px !important;
+  height: 140px !important;
+  border-radius: 50% !important;
+  background: conic-gradient(#3b82f6 0% 60%, #10b981 60% 85%, #f43f5e 85% 100%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.15) !important;
+}
+
+.omnia-gauge-inner {
+  width: 110px !important;
+  height: 110px !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.gauge-number {
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  line-height: 1 !important;
+}
+
+.gauge-label {
+  font-size: 10px !important;
+  color: #94a3b8 !important;
+  margin-top: 2px !important;
+}
+
+/* Distribution Meta List */
+.omnia-meta-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.omnia-meta-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  font-size: 12.5px !important;
+}
+
+.legend-dot {
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
+}
+
+.legend-dot.bg-blue { background-color: #3b82f6 !important; }
+.legend-dot.bg-green { background-color: #10b981 !important; }
+.legend-dot.bg-coral { background-color: #f43f5e !important; }
+
+.meta-name {
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+.meta-val {
+  color: #0f172a !important;
+  font-weight: 600 !important;
+}
+
+/* 3. Table Card Styles */
+.omnia-action-link {
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  color: #3b82f6 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.omnia-action-link:hover {
+  color: #1d4ed8 !important;
+  text-decoration: underline !important;
+}
+
+.omnia-table {
+  border-collapse: separate !important;
+  border-spacing: 0 8px !important;
+}
+
+.omnia-table thead th {
+  border: none !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #94a3b8 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.6px !important;
+  padding: 8px 14px !important;
+}
+
+.omnia-table tbody tr {
+  background: #f8fafc !important;
+  border-radius: 14px !important;
+  transition: all 0.2s ease !important;
+}
+
+.omnia-table tbody tr:hover {
+  background: #f1f5f9 !important;
+  transform: translateY(-1px);
+}
+
+.omnia-table tbody td {
+  border: none !important;
+  padding: 10px 14px !important;
+  font-size: 13px !important;
+}
+
+.omnia-table tbody td:first-child {
+  border-top-left-radius: 14px !important;
+  border-bottom-left-radius: 14px !important;
+}
+
+.omnia-table tbody td:last-child {
+  border-top-right-radius: 14px !important;
+  border-bottom-right-radius: 14px !important;
+}
+
+.omnia-thumb-wrapper {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: #e2e8f0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.omnia-thumb-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.omnia-thumb-placeholder i {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: #94a3b8 !important;
+}
+
+.omnia-status-badge {
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  padding: 4px 10px !important;
+  border-radius: 8px !important;
+  display: inline-block !important;
+}
+
+.badge-green {
+  background: #d1fae5 !important;
+  color: #059669 !important;
+}
+
+.badge-blue {
+  background: #dbeafe !important;
+  color: #2563eb !important;
+}
+
+.omnia-badge-pill-sm {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 3px 8px !important;
+  border-radius: 9999px !important;
+}
+
+.pill-coral {
+  background: #ffe4e6 !important;
+  color: #e11d48 !important;
+}
+
+.pill-green {
+  background: #dcfce7 !important;
+  color: #16a34a !important;
+}
+
+.btn-table-action {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #64748b !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-table-action:hover {
+  background: #3b82f6 !important;
+  color: #ffffff !important;
+  border-color: #3b82f6 !important;
+}
+
+.btn-table-action i {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* Category Quick List */
+.omnia-categories-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.omnia-cat-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 10px 14px !important;
+  border-radius: 14px !important;
+  background: #f8fafc !important;
+  border: 1px solid rgba(226, 232, 240, 0.6) !important;
+  transition: all 0.2s ease !important;
+}
+
+.omnia-cat-item:hover {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.omnia-cat-icon {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 10px !important;
+  background: #e0e7ff !important;
+  color: #4f46e5 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.omnia-cat-icon i {
+  width: 17px !important;
+  height: 17px !important;
+  stroke: #4f46e5 !important;
+}
+
+.omnia-cat-name {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+}
+
+.omnia-cat-count {
+  font-size: 11px !important;
+  color: #94a3b8 !important;
+}
+
+.omnia-cat-badge {
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  color: #475569 !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  padding: 2px 7px !important;
+  border-radius: 6px !important;
+}
+
