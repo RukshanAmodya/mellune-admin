@@ -5,7 +5,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>{!! Session::get('app_name') !!}</title>
-    <link rel='shortcut icon' type='image/x-icon' href="{{ asset('asset/img/favicon.png') }}" style="width: 2px !important;" />
+    <link rel='shortcut icon' type='image/png' href="{{ asset('asset/img/Mellune-Logo.png') }}" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> -->
     <link href="{{ asset('asset/cdncss/quill.css') }}" rel="stylesheet" /> 
@@ -17,7 +17,10 @@
 <body>
 
 <div class="loader-bg">
-    <div class="loader"></div>
+    <div class="mellune-preloader">
+        <div class="preloader-spinner"></div>
+        <img src="{{ asset('asset/img/Mellune-Logo.png') }}" alt="Mellune" class="preloader-logo">
+    </div>
 </div>
 
     <div id="app">
