@@ -1,3 +1,21 @@
+// ── Preloader hide on page load ──────────────────────────────────────────────
+$(window).on('load', function () {
+  $('.loader-bg').fadeOut(600, function () {
+    $(this).css('display', 'none');
+  });
+});
+// Fallback: force hide after 2s in case window.load already fired
+$(document).ready(function () {
+  setTimeout(function () {
+    if ($('.loader-bg').is(':visible')) {
+      $('.loader-bg').fadeOut(400, function () {
+        $(this).css('display', 'none');
+      });
+    }
+  }, 1500);
+});
+// ─────────────────────────────────────────────────────────────────────────────
+
 $.ajaxSetup({
   headers: {
     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
