@@ -29,26 +29,81 @@
         <div class="main-wrapper main-wrapper-1">
             <div class="navbar-bg"></div>
             <nav class="navbar navbar-expand-lg main-navbar sticky">
-                <div class="form-inline mr-auto">
-                     <ul class="navbar-nav mr-3">
+                <div class="navbar-left-area d-flex align-items-center">
+                    <ul class="navbar-nav mr-2">
                         <li>
-                            <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg collapse-btn">
+                            <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg collapse-btn modern-toggle-btn">
                                 <i data-feather="menu"></i>
                             </a>
                         </li>
                     </ul>
+
+                    <!-- Modern Search Bar -->
+                    <div class="navbar-search-wrapper">
+                        <input type="text" class="navbar-search-input" placeholder="Search wallpaper, category..." />
+                        <span class="navbar-search-icon">
+                            <i data-feather="search"></i>
+                        </span>
+                    </div>
                 </div>
-                <ul class="navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <span class="profile-btn">
-                                <i data-feather="user"></i>
-                            </span>
+
+                <ul class="navbar-nav navbar-right align-items-center">
+                    <!-- Live Server Status Indicator (Replacing WhatsApp Phone Number) -->
+                    <li class="nav-item d-none d-md-block mr-2">
+                        <div class="server-status-pill">
+                            <span class="status-pulse-dot"></span>
+                            <span class="status-label">Server Active</span>
+                            <span class="status-badge-text">v1.0.0</span>
+                        </div>
+                    </li>
+
+                    <!-- Notification Bell -->
+                    <li class="nav-item mr-2">
+                        <a href="{{ route('notification') }}" class="nav-icon-circle-btn" title="Notifications">
+                            <i data-feather="bell"></i>
+                            <span class="notification-indicator"></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right pullDown">
+                    </li>
+
+                    <!-- Language Selector Pill -->
+                    <li class="nav-item mr-3 d-none d-sm-block">
+                        <div class="lang-selector-pill">
+                            <i data-feather="globe"></i>
+                            <span>EN</span>
+                            <i data-feather="chevron-down" class="chevron-sm"></i>
+                        </div>
+                    </li>
+
+                    <!-- User Profile Dropdown Pill -->
+                    @php
+                        $rawUserName = session('user_name', 'Admin');
+                        $userInitials = strtoupper(substr($rawUserName, 0, 2));
+                        $userRole = session('user_type') == 1 ? 'Super Admin' : 'Administrator';
+                    @endphp
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user modern-user-pill">
+                            <div class="user-avatar-initials">{{ $userInitials }}</div>
+                            <div class="user-info-text d-none d-md-flex">
+                                <span class="user-name-display">{{ $rawUserName }}</span>
+                                <span class="user-role-display">{{ $userRole }}</span>
+                            </div>
+                            <i data-feather="chevron-down" class="chevron-user-sm d-none d-md-inline-block"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right pullDown modern-user-dropdown">
+                            <div class="dropdown-header">
+                                <h6>{{ $rawUserName }}</h6>
+                                <small class="text-muted">{{ $userRole }}</small>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ route('setting') }}" class="dropdown-item has-icon">
+                                <i data-feather="settings"></i> System Settings
+                            </a>
+                            <a href="{{ route('wallpaper') }}" class="dropdown-item has-icon">
+                                <i data-feather="image"></i> Manage Wallpapers
+                            </a>
+                            <div class="dropdown-divider"></div>
                             <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger">
-                                <i data-feather="log-out"></i>
-                                {{ __('logOut') }}
+                                <i data-feather="log-out"></i> Log Out
                             </a>
                         </div>
                     </li>
