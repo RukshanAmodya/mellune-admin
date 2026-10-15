@@ -8,7 +8,7 @@
     <link rel='shortcut icon' type='image/png' href="{{ asset('asset/img/Mellune-Logo.png') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> -->
     <link href="{{ asset('asset/cdncss/quill.css') }}" rel="stylesheet" /> 
     <link href="{{ asset('asset/cdncss/iziToast.css') }}" rel="stylesheet" /> 
@@ -38,56 +38,54 @@
                         </li>
                     </ul>
 
-                    <!-- Modern Search Bar -->
+                    <!-- Omnia-Style Search Bar (bg-[#f4f8ff] border-blue-100/60) -->
                     <div class="navbar-search-wrapper">
-                        <input type="text" class="navbar-search-input" placeholder="Search wallpaper, category..." />
+                        <input type="text" class="navbar-search-input" placeholder="Search..." />
                         <span class="navbar-search-icon">
                             <i data-feather="search"></i>
                         </span>
                     </div>
                 </div>
 
-                <ul class="navbar-nav navbar-right align-items-center">
-                    <!-- Live Server Status Indicator (Replacing WhatsApp Phone Number) -->
-                    <li class="nav-item d-none d-md-block mr-2">
-                        <div class="server-status-pill">
-                            <span class="status-pulse-dot"></span>
-                            <span class="status-label">Server Active</span>
-                            <span class="status-badge-text">v1.0.0</span>
-                        </div>
-                    </li>
+                <div class="navbar-right-group d-flex align-items-center">
+                    <!-- 1. Live Server Active Pill (Omnia style Phone Selector pill) -->
+                    <div class="omnia-phone-pill d-none d-md-flex align-items-center">
+                        <span class="omnia-dot-green"></span>
+                        <span class="omnia-pill-text">Mellune Engine</span>
+                        <span class="omnia-pill-badge">Online</span>
+                    </div>
 
-                    <!-- Notification Bell -->
-                    <li class="nav-item mr-2">
-                        <a href="{{ route('notification') }}" class="nav-icon-circle-btn" title="Notifications">
+                    <!-- 2. Dual Action Group: Bell & Language Pill -->
+                    <div class="omnia-dual-pill d-flex align-items-center">
+                        <!-- Notification Button -->
+                        <a href="{{ route('notification') }}" class="omnia-circle-bell" title="Notifications">
                             <i data-feather="bell"></i>
-                            <span class="notification-indicator"></span>
+                            <span class="omnia-notif-dot"></span>
                         </a>
-                    </li>
 
-                    <!-- Language Selector Pill -->
-                    <li class="nav-item mr-3 d-none d-sm-block">
-                        <div class="lang-selector-pill">
-                            <i data-feather="globe"></i>
-                            <span>EN</span>
-                            <i data-feather="chevron-down" class="chevron-sm"></i>
+                        <!-- Language Selector -->
+                        <div class="omnia-lang-btn d-none d-sm-flex align-items-center">
+                            <i data-feather="globe" class="omnia-globe-icon"></i>
+                            <span class="omnia-lang-code">EN</span>
+                            <i data-feather="chevron-down" class="omnia-chevron-icon"></i>
                         </div>
-                    </li>
+                    </div>
 
-                    <!-- User Profile Dropdown Pill -->
+                    <!-- 3. Omnia User Profile Pill & Dropdown -->
                     @php
                         $rawUserName = session('user_name', 'Admin');
                         $userInitials = strtoupper(substr($rawUserName, 0, 2));
-                        $userRole = session('user_type') == 1 ? 'Super Admin' : 'Administrator';
+                        $userRole = session('user_type') == 1 ? 'System Admin' : 'Admin';
                     @endphp
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user modern-user-pill">
-                            <div class="user-avatar-initials">{{ $userInitials }}</div>
-                            <div class="user-info-text d-none d-md-flex">
-                                <span class="user-name-display">{{ $rawUserName }}</span>
-                                <span class="user-role-display">{{ $userRole }}</span>
+                    <div class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="omnia-user-pill d-flex align-items-center">
+                            <div class="omnia-avatar-gradient">
+                                {{ $userInitials }}
                             </div>
-                            <i data-feather="chevron-down" class="chevron-user-sm d-none d-md-inline-block"></i>
+                            <div class="omnia-user-meta d-none d-sm-flex flex-column text-left">
+                                <span class="omnia-user-name">{{ $rawUserName }}</span>
+                                <span class="omnia-user-role">{{ $userRole }}</span>
+                            </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right pullDown modern-user-dropdown">
                             <div class="dropdown-header">
@@ -96,7 +94,7 @@
                             </div>
                             <div class="dropdown-divider"></div>
                             <a href="{{ route('setting') }}" class="dropdown-item has-icon">
-                                <i data-feather="settings"></i> System Settings
+                                <i data-feather="settings"></i> Account Settings
                             </a>
                             <a href="{{ route('wallpaper') }}" class="dropdown-item has-icon">
                                 <i data-feather="image"></i> Manage Wallpapers
@@ -106,8 +104,8 @@
                                 <i data-feather="log-out"></i> Log Out
                             </a>
                         </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </nav>
             
             <div class="main-sidebar sidebar-style-2">
